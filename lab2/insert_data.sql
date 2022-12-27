@@ -50,7 +50,7 @@ insert into Company (Company_Name, Manager, Number_Of_Employees, Date_Of_Establi
 
 insert into Sale_Place (Floor, Area, Air_Conditioning, isRented, Rent_Price) values (3, 67, false, true, 11282.3);
 insert into Sale_Place (Floor, Area, Air_Conditioning, isRented, Rent_Price) values (3, 41, false, false, 20306.4);
-insert into Sale_Place (Floor, Area, Air_Conditioning, isRented, Rent_Price) values (2, 88, true, true, 24097.9);
+insert into Sale_Place (Floor, Area, Air_Conditioning, isRented, Rent_Price) values (2, 88, true, true, 24097.8);
 insert into Sale_Place (Floor, Area, Air_Conditioning, isRented, Rent_Price) values (1, 22, false, true, 25502.0);
 insert into Sale_Place (Floor, Area, Air_Conditioning, isRented, Rent_Price) values (2, 72, true, true, 18893.6);
 insert into Sale_Place (Floor, Area, Air_Conditioning, isRented, Rent_Price) values (1, 98, false, false, 27849.9);
