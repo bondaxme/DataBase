@@ -1,20 +1,20 @@
 use db_labs;
 
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Gris', 'Ganderton', 'M', 'gganderton0@homestead.com', 3, '561 472 6185', '4325783423913', 5);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Felic', 'Corssen', 'M', 'fcorssen1@unesco.org', 2, '793 888 6341', '8723657834910', 1);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Emerson', 'Eastope', 'M', 'eeastope2@tinyurl.com', 3, '717 272 3339', '5691839783017', 1);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Josee', 'Marsden', 'F', 'jmarsden3@blogspot.com', 1, '620 797 4493', '1234567891234', 3);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Manfred', 'Davydychev', 'M', 'mdavydychev4@stumbleupon.com', 5, '936 511 4427', '2345678901234', 1);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Herrick', 'Allsop', 'M', 'hallsop5@cbsnews.com', 6, '390 116 9796', '3456789012345', 6);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Vania', 'Pierro', 'F', 'vpierro6@soundcloud.com', 4, '399 797 9279', '4567890123456', 2);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Savina', 'Gantley', 'F', 'sgantley7@bloomberg.com', 4, '104 623 1838', '5678901234567', 1);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Bathsheba', 'Greim', 'F', 'bgreim8@ebay.co.uk', 2, '347 808 9062', '6789012345678', 8);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Hewe', 'Dixcee', 'M', 'hdixcee9@list-manage.com', 1, '407 637 6455', '7890123456789', 15);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Collie', 'Copeland', 'F', 'ccopelanda@addtoany.com', 8, '652 525 1267', '8901234567890', 1);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Chevy', 'Rushman', 'M', 'crushmanb@skyrock.com', 3, '368 676 3954', '9012345678901', 5);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Otes', 'Dunridge', 'M', 'odunridgec@google.com.hk', 1, '475 659 6173', '0123456789012', 3);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Claus', 'MacPike', 'M', 'cmacpiked@npr.org', 1, '979 190 8112', '0987654321098', 2);
-insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number, Company_ID) values ('Wynny', 'Harms', 'F', 'wharmse@arizona.edu', 5, '915 446 1896', '9876543210987', 4);
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Gris', 'Ganderton', 'M', 'gganderton0@homestead.com', 3, '561 472 6185', '4325783423913');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Felic', 'Corssen', 'M', 'fcorssen1@unesco.org', 2, '793 888 6341', '8723657834910');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Emerson', 'Eastope', 'M', 'eeastope2@tinyurl.com', 3, '717 272 3339', '5691839783017');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Josee', 'Marsden', 'F', 'jmarsden3@blogspot.com', 1, '620 797 4493', '1234567891234');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Manfred', 'Davydychev', 'M', 'mdavydychev4@stumbleupon.com', 5, '936 511 4427', '2345678901234');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Herrick', 'Allsop', 'M', 'hallsop5@cbsnews.com', 6, '390 116 9796', '3456789012345');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Vania', 'Pierro', 'F', 'vpierro6@soundcloud.com', 4, '399 797 9279', '4567890123456');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Savina', 'Gantley', 'F', 'sgantley7@bloomberg.com', 4, '104 623 1838', '5678901234567');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Bathsheba', 'Greim', 'F', 'bgreim8@ebay.co.uk', 2, '347 808 9062', '6789012345678');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Hewe', 'Dixcee', 'M', 'hdixcee9@list-manage.com', 1, '407 637 6455', '7890123456789');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Collie', 'Copeland', 'F', 'ccopelanda@addtoany.com', 8, '652 525 1267', '8901234567890');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Chevy', 'Rushman', 'M', 'crushmanb@skyrock.com', 3, '368 676 3954', '9012345678901');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Otes', 'Dunridge', 'M', 'odunridgec@google.com.hk', 1, '475 659 6173', '0123456789012');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Claus', 'MacPike', 'M', 'cmacpiked@npr.org', 1, '979 190 8112', '0987654321098');
+insert into Worker (First_Name, Last_Name, Gender, Email, Experience, Phone, Passport_Number) values ('Wynny', 'Harms', 'F', 'wharmse@arizona.edu', 5, '915 446 1896', '9876543210987');
 
 insert into Client (First_Name, Last_Name, Address, Phone, Payment_Details) values ('Oswell', 'Renals', '8 Comanche Trail', '650 450 8121', '3550550222500078');
 insert into Client (First_Name, Last_Name, Address, Phone, Payment_Details) values ('Crystie', 'Scarbarrow', '578 Glendale Way', '225 646 7545', '3571482652256218');

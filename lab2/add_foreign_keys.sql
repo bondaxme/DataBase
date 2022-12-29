@@ -10,14 +10,14 @@ add constraint sale_place_fk
 FOREIGN KEY (Shopping_Center_ID) references shopping_center(Shopping_Center_ID)
 on delete cascade;
 
-alter table worker
-add constraint worker_fk
+alter table employee
+add constraint employee_fk
 FOREIGN KEY (Company_ID) references company(Company_ID)
 on delete cascade;
 
 alter table contract
 add constraint contract_fk
-FOREIGN KEY (Worker_ID) references worker(Worker_ID)
+FOREIGN KEY (Employee_ID) references Employee(Employee_ID)
 on delete cascade;
 
 alter table treaty
@@ -29,3 +29,14 @@ alter table treaty
 add constraint treaty_company_fk
 FOREIGN KEY (Company_ID) references company(Company_ID)
 on delete cascade;
+
+alter table treaty
+add constraint treaty_shopping_center_fk
+FOREIGN KEY (Shopping_Center_ID) references shopping_center(Shopping_Center_ID)
+on delete cascade;
+
+alter table treaty
+add constraint treaty_sale_place_fk
+FOREIGN KEY (Sale_Place_ID) references sale_place(Sale_Place_ID)
+on delete cascade;
+
