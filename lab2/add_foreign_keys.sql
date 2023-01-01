@@ -20,6 +20,11 @@ add constraint contract_fk
 FOREIGN KEY (Employee_ID) references Employee(Employee_ID)
 on delete cascade;
 
+-- alter table contract
+-- add constraint contract_company_fk
+-- FOREIGN KEY (Company_ID) references company(Company_ID)
+-- on delete cascade;
+
 alter table treaty
 add constraint treaty_client_fk
 FOREIGN KEY (Client_ID) references client(Client_ID)

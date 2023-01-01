@@ -20,7 +20,7 @@ create table Employee
     Last_Name VARCHAR(20),
     Gender CHAR,
     Email VARCHAR(40),
-    Experience INT,
+    Experience_In_Month INT,
     Phone VARCHAR(12),
     Passport_Number VARCHAR(13),
     PRIMARY KEY (Employee_ID)
@@ -72,8 +72,6 @@ create table Client
 create table Treaty
 (
     Treaty_ID INT NOT NULL AUTO_INCREMENT,
-    Shopping_Center_ID INT,
-    Sale_Place_ID INT,
     Start_Date DATE,
     End_Date DATE,
     PRIMARY KEY (Treaty_ID)
