@@ -1,97 +1,98 @@
-create table Company
+drop database db_labs;
+create database if not exists db_labs;
+use db_labs;
+
+create table company
 (
-    Company_ID INT NOT NULL AUTO_INCREMENT,
-    Company_Name VARCHAR(30),
-    Manager VARCHAR(50),
-    Number_Of_Employees INT,
-    Date_Of_Establishment DATE,
-    PRIMARY KEY (Company_ID)
+  id INT AUTO_INCREMENT,
+  company_name VARCHAR(55),
+  employees_amount INT,
+  shopping_centers_amount INT,
+  PRIMARY KEY (id)
 );
 
-create table Employee
+create table employee
 (
-    Employee_ID INT NOT NULL AUTO_INCREMENT,
-    Company_ID INT,
-    First_Name VARCHAR(20),
-    Last_Name VARCHAR(20),
-    Gender CHAR,
-    Email VARCHAR(40),
-    Experience INT,
-    Phone VARCHAR(12),
-    Passport_Number VARCHAR(13),
-    PRIMARY KEY (Employee_ID),
-    FOREIGN KEY (Company_ID) references company(Company_ID)
-    on delete cascade
+    id INT AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    phone_number VARCHAR(12),
+    address VARCHAR(50),
+    sex CHAR,
+    passport_number varchar(13),
+    PRIMARY KEY (id)
 );
 
-create table Contract
+create table contract
 (
-    Contract_ID INT NOT NULL AUTO_INCREMENT,
-    Employee_ID INT,
-    Date_Of_Conclusion DATE,
-    Duration_In_Months INT,
-    Salary DOUBLE,
-    Additional_Conditions TEXT NULL,
-    PRIMARY KEY (Contract_ID),
-    FOREIGN KEY (Employee_ID) references Employee(Employee_ID)
-    on delete cascade
+    id INT AUTO_INCREMENT,
+    company_id INT,
+    employee_id INT,
+    salary DECIMAL,
+    position varchar(50),
+    start_date DATE,
+    end_date DATE,
+    PRIMARY KEY (id),
+    foreign key(employee_id) references employee(id),
+    foreign key(company_id) references company(id)
 );
 
-create table Shopping_Center
+create table shopping_center
 (
-    Shopping_Center_ID INT NOT NULL AUTO_INCREMENT,
-    Company_ID INT,
+    id INT AUTO_INCREMENT,
+    company_id INT,
     `name` varchar(30),
-    Address varchar(50),
-    Manager varchar(50),
-    Number_Of_Employees INT,
-    Number_Of_Sale_Places INT,
-    PRIMARY KEY (Shopping_Center_ID),
-    FOREIGN KEY (Company_ID) references company(Company_ID)
-    on delete cascade
+    address varchar(50),
+    manager_name varchar(50),
+    employees_amount INT,
+    retail_outlet_amount INT,
+    PRIMARY KEY (id),
+    foreign key(company_id) references company(id)
 );
 
-create table Sale_Place
+create table retail_outlet
 (
-    Sale_Place_ID INT NOT NULL AUTO_INCREMENT,
-    Shopping_Center_ID INT,
-    Floor INT,
-    Area DOUBLE,
-    Air_Conditioning BOOL,
-    isRented BOOL,
-    Rent_Price INT,
-    PRIMARY KEY (Sale_Place_ID),
-    FOREIGN KEY (Shopping_Center_ID) references shopping_center(Shopping_Center_ID)
-    on delete cascade
+    id INT AUTO_INCREMENT,
+    shopping_center_id INT,
+    floor INT,
+    area DOUBLE,
+    air_conditioning BOOL,
+    daily_rent_price DECIMAL,
+    availability BOOL,
+    PRIMARY KEY (id),
+    foreign key(shopping_center_id) references shopping_center(id)
 );
 
-create table Client
+create table client
 (
-    Client_ID INT NOT NULL AUTO_INCREMENT,
-    First_Name VARCHAR(20),
-    Last_Name VARCHAR(20),
-    Address varchar(50),
-    Phone varchar(12),
-    Payment_Details varchar(16),
-    PRIMARY KEY (Client_ID)
+    id INT AUTO_INCREMENT,
+    first_name VARCHAR(20),
+    last_name VARCHAR(20),
+    address VARCHAR(50),
+    phone_number VARCHAR(12),
+    payment_card_number VARCHAR(16),
+    PRIMARY KEY (id)
 );
 
-create table Treaty
+create table treaty
 (
-    Treaty_ID INT NOT NULL AUTO_INCREMENT,
-    Client_ID INT,
-    Company_ID INT,
-    Shopping_Center_ID INT,
-    Sale_Place_ID INT,
-    Start_Date DATE,
-    End_Date DATE,
-    PRIMARY KEY (Treaty_ID),
-    FOREIGN KEY (Client_ID) references client(Client_ID),
-    on delete cascade,
-    FOREIGN KEY (Company_ID) references company(Company_ID)
-    on delete cascade,
-    FOREIGN KEY (Shopping_Center_ID) references Shopping_Center(Shopping_Center_ID)
-    on delete cascade,
-    FOREIGN KEY (Sale_Place_ID) references Sale_Place(Sale_Place_ID)
-    on delete cascade
+    id INT AUTO_INCREMENT,
+    client_id INT,
+    retail_outlet_id INT,
+    start_date DATE,
+    end_date DATE,
+    PRIMARY KEY (id),
+    foreign key(client_id) references client(id),
+    foreign key(retail_outlet_id) references retail_outlet(id)
 );
+
+create table monthly_payments
+(
+    id INT AUTO_INCREMENT,
+    client_id INT,
+    amount_of_payment DECIMAL,
+    month varchar(15),
+    PRIMARY KEY (id),
+    foreign key (client_id) references client(id)
+);
+
