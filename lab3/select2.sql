@@ -28,7 +28,8 @@ limit 31;
 
 select first_name, last_name, payment_card_number, month, amount_of_payment
 from client, monthly_payments
-where client.id = monthly_payments.client_id;
+where client.id = monthly_payments.client_id
+order by first_name;
 
 select first_name, last_name, payment_card_number, month, amount_of_payment
 from client, monthly_payments
@@ -38,13 +39,17 @@ select first_name, last_name, salary, position
 from employee
 join contract on employee.id = contract.employee_id;
 
-select first_name, last_name, retail_outlet_id
+select first_name, last_name, retail_outlet_id, sc.name, sc.address
 from client
 left join treaty on client.id = client_id
+left join retail_outlet on treaty.retail_outlet_id = retail_outlet.id
+left join shopping_center sc on retail_outlet.shopping_center_id = sc.id;
 
-select first_name, last_name, retail_outlet_id
+select first_name, last_name, retail_outlet_id, sc.name, sc.address
 from client
-right join treaty on client.id = client_id;
+right join treaty on client.id = client_id
+right join retail_outlet on treaty.retail_outlet_id = retail_outlet.id
+right join shopping_center sc on retail_outlet.shopping_center_id = sc.id;
 
 select first_name, last_name, address
 from client
