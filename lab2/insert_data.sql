@@ -18,20 +18,20 @@ insert into employee (first_name, last_name, phone_number, address, sex, passpor
     ('Caria', 'Sute', '159-707-3802', '4375 Jay Point', 'F', 2534608810137);
 
 insert into contract (company_id, employee_id, salary, position, start_date, end_date) values
-    (1, 1, 5000, 'Manager', '2022-01-01', '2024-12-31'),
-    (1, 2, 4000, 'Assistant Manager', '2022-08-01', '2024-12-31'),
-    (1, 3, 3000, 'Sales Representative', '2022-01-01', '2024-12-31'),
-    (1, 4, 2500, 'Cashier', '2022-01-01', '2024-12-31'),
+    (1, 1, 5000, 'Manager', '2022-01-01', '2024-06-30'),
+    (1, 2, 4000, 'Assistant Manager', '2022-08-01', '2025-06-30'),
+    (1, 3, 3000, 'Sales Representative', '2022-01-01', '2023-12-31'),
+    (1, 4, 2500, 'Cashier', '2022-01-01', '2023-06-30'),
     (1, 5, 2000, 'Security Guard', '2022-01-01', '2024-12-31'),
-    (1, 6, 3500, 'Cleaning Staff', '2022-06-01', '2024-12-31'),
-    (1, 7, 4500, 'IT Technician', '2022-02-01', '2024-12-31'),
+    (1, 6, 3500, 'Cleaning Staff', '2022-06-01', '2024-08-31'),
+    (1, 7, 4500, 'IT Technician', '2022-02-01', '2026-06-30'),
     (1, 8, 3500, 'Marketing Manager', '2022-04-01', '2024-12-31'),
-    (1, 9, 4000, 'Human Resources Manager', '2022-01-01', '2024-12-31'),
-    (1, 10, 3000, 'Receptionist', '2022-01-01', '2024-12-31'),
-    (1, 11, 2500, 'Facility Manager', '2022-08-01', '2024-12-31'),
-    (1, 12, 2000, 'Customer Service Representative', '2022-01-01', '2024-12-31'),
-    (1, 13, 3500, 'Inventory Manager', '2022-09-01', '2024-12-31'),
-    (1, 14, 4500, 'Accountant', '2022-03-01', '2024-12-31'),
+    (1, 9, 4000, 'Human Resources Manager', '2022-01-01', '2024-06-30'),
+    (1, 10, 3000, 'Receptionist', '2022-01-01', '2023-06-30'),
+    (1, 11, 2500, 'Facility Manager', '2022-08-01', '2023-12-31'),
+    (1, 12, 2000, 'Customer Service Representative', '2022-01-01', '2023-12-31'),
+    (1, 13, 3500, 'Inventory Manager', '2022-09-01', '2025-12-31'),
+    (1, 14, 4500, 'Accountant', '2022-03-01', '2023-06-30'),
     (1, 15, 3500, 'Legal Representative', '2022-01-01', '2024-12-31');
 
 
