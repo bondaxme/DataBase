@@ -23,11 +23,11 @@ from monthly_payments
 group by month
 having sum(amount_of_payment) > 500;
 
-select *
-from shopping_center
-having employees_amount < 150;
+select avg(salary)
+from contract
+having avg(salary) > 150;
 
-select row_number() over (order by salary DESC), e.first_name, e.last_name, salary
+select row_number() over (order by salary DESC) as position, e.first_name, e.last_name, salary
 from contract
 join employee e on contract.employee_id = e.id;
 
