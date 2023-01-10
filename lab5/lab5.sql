@@ -108,14 +108,6 @@ begin
 end;
 call dynamic_columns(true);
 
-drop function if exists declared_table;
-create function declared_table(name varchar(50)) returns varchar(2048)
-    deterministic
-begin
-    declare
-end;
-call declared_table();
-
 drop procedure if exists curs;
 create procedure curs()
 begin
