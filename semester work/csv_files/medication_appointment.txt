@@ -1,0 +1,1 @@
+id,appointment_id,medication_id

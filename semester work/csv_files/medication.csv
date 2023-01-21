@@ -1,0 +1,11 @@
+id,medication_name,dosage_in_mg,availability,price
+1,Ibuprofen,250,1,300
+2,Aspirin,15,1,150.50
+3,Penicillin,160,1,400
+4,Amoxicillin,240,1,800
+5,Metformin,105,1,430.50
+6,Lisinopril,130,1,200
+7,Paracetamol,50,1,40.25
+8,Levothyroxine,160,0,100
+9,Risperidone,160,1,500
+10,Clonazepam,260,0,1000

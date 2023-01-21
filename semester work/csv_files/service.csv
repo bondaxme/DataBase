@@ -1,0 +1,9 @@
+id,service_name,duration_minutes,price
+1,Teeth cleaning,60,850.50
+2,Medical massage,60,660
+3,Physical therapy,45,525
+4,Vaccination,10,150.80
+5,Laboratory testing,15,325.20
+6,General check-up,55,2200
+7,X-ray,20,350.50
+8,Surgery,180,15499
