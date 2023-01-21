@@ -30,9 +30,9 @@ add constraint appointment_service_fk
 foreign key (service_id) references service(id)
 on delete cascade;
 
-alter table payment
-add constraint payment_fk
-foreign key (appointment_id) references appointment(id)
+alter table appointment
+add constraint appointment_payment_fk
+foreign key (payment_id) references payment(id)
 on delete cascade;
 
 alter table medication_appointment

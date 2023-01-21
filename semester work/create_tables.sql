@@ -102,6 +102,7 @@ create table appointment
     service_id int not null,
     doctor_id int not null,
     patient_id int not null,
+    payment_id int not null,
     appointment_date datetime not null,
     primary key (id)
 );
@@ -118,7 +119,6 @@ create table service
 create table payment
 (
     id int auto_increment,
-    appointment_id int not null,
     payment_date date not null,
     amount decimal(8, 2) not null,
     payment_method varchar(255) not null,

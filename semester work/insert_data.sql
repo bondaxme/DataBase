@@ -6,6 +6,12 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
+LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/payment.csv' INTO TABLE payment
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
 LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/doctor.csv' INTO TABLE doctor
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -47,6 +53,13 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/medication_appointment.csv' INTO TABLE medication_appointment
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
 
 
 
