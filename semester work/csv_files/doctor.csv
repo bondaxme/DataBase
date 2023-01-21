@@ -1,11 +1,9 @@
 id,doctor_name,speciality,years_of_experience,phone_number
-1,Darya Gold,Cardiology,35,335-129-5252
-2,Mabel Cracoe,Oncology,1,669-712-0819
-3,Kameko Redwin,Neurology,1,303-870-3583
-4,Christophorus Jest,Orthopedics,22,388-906-9491
-5,Venus Jakubovics,Pediatrics,11,326-839-9603
-6,Allianora Mularkey,Obstetrics and Gynecology,4,850-576-2520
-7,Olenolin Critoph,Gastroenterology,13,827-874-9108
-8,Olivero Bridgnell,Dermatology,32,598-126-3258
-9,Hogan Goundsy,Ophthalmology,33,625-505-1527
-10,Alexandro Heikkinen,Pulmonology,11,939-989-2133
+1,Mabel Cracoe,Dentist,1,669-712-0819
+2,Olenolin Critoph,Massage therapist,13,827-874-9108
+3,Tom Cruise,Physical Medicine and Rehabilitation,10,324-423-1234
+4,Christophorus Jest,Vaccine provider,22,388-906-9491
+5,Kameko Redwin,Pathologist,1,303-870-3583
+6,Allianora Mularkey,Therapist,4,850-576-2520
+7,Hogan Goundsy,Radiologist,33,625-505-1527
+8,Olivero Bridgnell,Surgeon,32,598-126-3258

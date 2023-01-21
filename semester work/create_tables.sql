@@ -102,7 +102,7 @@ create table appointment
     service_id int not null,
     doctor_id int not null,
     patient_id int not null,
-    appointment_date date not null,
+    appointment_date datetime not null,
     primary key (id)
 );
 

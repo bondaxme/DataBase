@@ -36,7 +36,17 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
+LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/appointment.csv' INTO TABLE appointment
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
 
+LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/room_housing.csv' INTO TABLE room_housing
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
 
 
 
