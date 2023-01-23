@@ -8,4 +8,4 @@ id,medication_name,dosage_in_mg,availability,price
 7,Paracetamol,50,1,40.25
 8,Dentinox,160,0,100
 9,Influgan,160,1,500
-10,Hyaluronidase.,260,0,1000
+10,Hyaluronidase,260,0,1000

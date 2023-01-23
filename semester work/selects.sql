@@ -28,12 +28,13 @@ join room r on room_housing.room_id = r.id
 where end_date > curdate()
 order by end_date;
 
-select * from patient_rooms;
 
 select room_number, type, count(*) as patients_amount
 from patient_rooms
 group by room_number, type
 order by room_number;
+
+select * from occupancy_of_rooms;
 
 select doctor_name, count(*) as appointments_amount, sum(price) as earned_money, service_name
 from appointment_data
@@ -57,3 +58,20 @@ left join appointment a on patient.id = a.patient_id
 left join medication_appointment ma on a.id = ma.appointment_id
 left join medication m on ma.medication_id = m.id;
 
+select patient_name
+from patient
+join medical_card on patient.id = medical_card.patient_id
+WHERE medical_card.availability_of_insurance = 1;
+
+select service_name, doctor_name, appointment_date
+from appointment
+join service on appointment.service_id = service.id
+join doctor on appointment.doctor_id = doctor.id
+where date(appointment_date) = CURDATE();
+
+select patient_name, medication_name, availability
+
+# SELECT patient_name FROM patient
+# JOIN room_housing
+# ON patient.id = room_housing.patient_id
+# WHERE end_date < CURDATE();

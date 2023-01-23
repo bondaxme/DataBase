@@ -41,7 +41,7 @@ create table room
     room_number int not null,
     type varchar(255) not null,
     capacity int not null,
-    availability bool,
+    availability bool default 1,
     primary key (id),
     check ( type in ('VIP', 'Standard') )
 );
