@@ -67,7 +67,7 @@ select service_name, doctor_name, appointment_date
 from appointment
 join service on appointment.service_id = service.id
 join doctor on appointment.doctor_id = doctor.id
-where date(appointment_date) = CURDATE();
+where appointment_date between DATE_ADD(curdate(), INTERVAL -7 DAY) and curdate();
 
 select patient_name, medication_name, availability
 

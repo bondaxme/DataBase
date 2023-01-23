@@ -69,15 +69,6 @@ create table medical_card
     primary key (id)
 );
 
-# create table visit
-# (
-#     id int auto_increment,
-#     doctor_id int not null,
-#     patient_id int not null,
-#     visit_date date not null,
-#     primary key (id)
-# );
-
 create table medication_appointment
 (
     id int auto_increment,

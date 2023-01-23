@@ -13,6 +13,8 @@ begin
 end //
 delimiter ;
 
+insert into room_housing(id, patient_id, room_id, start_date, end_date) value (25,20,2,'2023-01-01','2023-01-30');!!!!!!!!!!
+
 drop trigger if exists update_room_availability;
 delimiter //
 create trigger update_room_availability before insert on room for each row
@@ -20,7 +22,7 @@ begin
     if id in (select id
         from room
         join occupancy_of_rooms oor on room.room_number = oor.room_number
-        where patients_amount = capacity) then
+        where patients_amount = capacity ) then
         set NEW.availability = 0;
     end if;
 end //
