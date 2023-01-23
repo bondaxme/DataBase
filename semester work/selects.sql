@@ -50,3 +50,10 @@ select payment_date, count(*) as amount_of_payments_per_day
 from payment
 group by payment_date
 order by payment_date;
+
+select patient_name, medication_name, dosage_in_mg, price
+from patient
+left join appointment a on patient.id = a.patient_id
+left join medication_appointment ma on a.id = ma.appointment_id
+left join medication m on ma.medication_id = m.id;
+
