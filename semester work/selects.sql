@@ -32,7 +32,8 @@ select * from patient_rooms;
 
 select room_number, type, count(*) as patients_amount
 from patient_rooms
-group by room_number, type;
+group by room_number, type
+order by room_number;
 
 select doctor_name, count(*) as appointments_amount, sum(price) as earned_money, service_name
 from appointment_data
