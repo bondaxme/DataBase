@@ -63,8 +63,8 @@ create table medical_card
     height int not null,
     weight decimal(5,2) not null,
     blood_type varchar(255) not null,
-    allergies varchar(255) not null,
-    medical_history varchar(255) not null,
+    allergies varchar(255) null,
+    medical_history varchar(255) null,
     availability_of_insurance bool not null,
     primary key (id)
 );

@@ -60,6 +60,11 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
+update medical_card
+set allergies = null
+where allergies = 'none';
 
-
+update medical_card
+set medical_history = null
+where medical_history = 'none';
 
