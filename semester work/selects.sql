@@ -42,4 +42,10 @@ select patient_name, payment_date, payment_method, sum(amount) as amount_of_paym
 from patient
 left join appointment a on patient.id = a.patient_id
 left join payment p on a.payment_id = p.id
-group by patient_name, payment_date, payment_method;
+group by patient_name, payment_date, payment_method
+order by amount_of_payments desc;
+
+select payment_date, count(*) as amount_of_payments_per_day
+from payment
+group by payment_date
+order by payment_date;
