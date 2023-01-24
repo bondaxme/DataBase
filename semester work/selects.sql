@@ -89,3 +89,15 @@ select doctor_name, speciality, count(distinct patient_id) as unique_patients
 from doctor
 left join appointment a on doctor.id = a.doctor_id
 group by doctor_name, speciality;
+
+#patients without allergies and medical history
+select patient_name
+from patient
+join medical_card mc on patient.id = mc.patient_id
+where allergies is null and medical_history is null;
+
+#patients who have AB+ blood type and can be universal recipient
+select patient_name
+from patient
+join medical_card mc on patient.id = mc.patient_id
+where blood_type = 'AB+';

@@ -31,4 +31,4 @@ begin
 end $$
 delimiter ;
 
-insert into room_housing value (25,20,6,'2023-01-24','2023-01-30');
+insert into room_housing value (26,20,6,'2023-01-24','2023-01-30');
