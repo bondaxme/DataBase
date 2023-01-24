@@ -82,9 +82,10 @@ group by medication_name, dosage_in_mg;
 select medication_name
 from medication_appointment
 join medication m on m.id = medication_appointment.medication_id
-where availability = 0
+where availability = 0;
 
-# SELECT patient_name FROM patient
-# JOIN room_housing
-# ON patient.id = room_housing.patient_id
-# WHERE end_date < CURDATE();
+#count the amount of patients for every doctor
+select doctor_name, speciality, count(distinct patient_id) as unique_patients
+from doctor
+left join appointment a on doctor.id = a.doctor_id
+group by doctor_name, speciality;
