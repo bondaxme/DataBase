@@ -17,13 +17,14 @@ insert into room_housing(id, patient_id, room_id, start_date, end_date) value (2
 
 drop trigger if exists update_room_availability;
 delimiter $$
-create trigger update_room_availability before insert on room for each row
+create trigger update_room_availability before insert on room_housing for each row
 begin
-    if id in (select id
-        from room
-        join occupancy_of_rooms oor on room.room_number = oor.room_number
-        where patients_amount = capacity ) then
-        set NEW.availability = 0;
+    if NEW.room_id in (select room_id, capacity, count(*) as patients_amount
+              from room_housing
+              join room r on room_housing.room_id = r.id
+              group by room_id, capacity
+              having patients_amount = capacity) then
+        set
     end if;
 end $$
 delimiter ;
