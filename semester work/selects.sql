@@ -52,19 +52,17 @@ join doctor on appointment.doctor_id = doctor.id
 where appointment_date between DATE_ADD(curdate(), INTERVAL -7 DAY) and curdate()
 order by appointment_date;
 
-select payment_date, count(*) as amount_of_payments_per_day
-from payment
-group by payment_date
-order by payment_date;
+select doctor_name, count(*) as appointments_amount, sum(price) as earned_money, service_name
+from doctor
+join appointment a on doctor.id = a.doctor_id
+join service s on a.service_id = s.id
+group by doctor_name, service_name
+order by earned_money desc;
 
 select room_number, type, count(*) as patients_amount
-from patient_rooms
-group by room_number, type
-order by room_number;
-
-select doctor_name, count(*) as appointments_amount, sum(price) as earned_money, service_name
-from appointment_data
-group by doctor_name, service_name;
+from room_housing
+join room r on room_housing.room_id = r.id
+group by room_number, type;
 
 
 select patient_name, medication_name, availability
