@@ -50,7 +50,7 @@ from patient
 join medical_card on patient.id = medical_card.patient_id
 WHERE medical_card.availability_of_insurance = 1;
 
-#last aweek appointments
+#last week appointments
 select service_name, doctor_name, appointment_date
 from appointment
 join service on appointment.service_id = service.id
@@ -78,11 +78,12 @@ from medication_appointment
 join medication m on medication_appointment.medication_id = m.id
 group by medication_name, dosage_in_mg;
 
-#medications need to be ordered
-select medication_name
+#medications need to be ordered and amount to order
+select medication_name, count(*) as required_amount
 from medication_appointment
 join medication m on m.id = medication_appointment.medication_id
-where availability = 0;
+where availability = 0
+group by medication_name;
 
 #count the amount of patients for every doctor
 select doctor_name, speciality, count(distinct patient_id) as unique_patients
