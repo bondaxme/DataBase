@@ -1,7 +1,7 @@
 use hospital;
 
 drop trigger if exists full_rooms;
-delimiter //
+delimiter $$
 create trigger full_rooms before insert on room_housing for each row
 begin
     if room_id in (select id
@@ -10,13 +10,13 @@ begin
         signal sqlstate '45000'
             set message_text = 'The room has the maximum number of patients. Choose other room';
     end if;
-end //
+end $$
 delimiter ;
 
-insert into room_housing(id, patient_id, room_id, start_date, end_date) value (25,20,2,'2023-01-01','2023-01-30');!!!!!!!!!!
+insert into room_housing(id, patient_id, room_id, start_date, end_date) value (25,20,2,'2023-01-01','2023-01-30');
 
 drop trigger if exists update_room_availability;
-delimiter //
+delimiter $$
 create trigger update_room_availability before insert on room for each row
 begin
     if id in (select id
@@ -25,7 +25,7 @@ begin
         where patients_amount = capacity ) then
         set NEW.availability = 0;
     end if;
-end //
+end $$
 delimiter ;
 
 

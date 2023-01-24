@@ -19,8 +19,6 @@ order by appointment_date;
 
 select * from appointment_data;
 
-drop view if exists patient_rooms;
-create or replace view patient_rooms as
 select end_date, patient_name, room_number, type
 from room_housing
 join patient p on room_housing.patient_id = p.id
@@ -29,28 +27,12 @@ where end_date > curdate()
 order by end_date;
 
 
-select room_number, type, count(*) as patients_amount
-from patient_rooms
-group by room_number, type
-order by room_number;
-
-select * from occupancy_of_rooms;
-
-select doctor_name, count(*) as appointments_amount, sum(price) as earned_money, service_name
-from appointment_data
-group by doctor_name, service_name;
-
 select patient_name, payment_date, payment_method, sum(amount) as amount_of_payments
 from patient
 left join appointment a on patient.id = a.patient_id
 left join payment p on a.payment_id = p.id
 group by patient_name, payment_date, payment_method
 order by amount_of_payments desc;
-
-select payment_date, count(*) as amount_of_payments_per_day
-from payment
-group by payment_date
-order by payment_date;
 
 select patient_name, medication_name, dosage_in_mg, price
 from patient
@@ -67,7 +49,23 @@ select service_name, doctor_name, appointment_date
 from appointment
 join service on appointment.service_id = service.id
 join doctor on appointment.doctor_id = doctor.id
-where appointment_date between DATE_ADD(curdate(), INTERVAL -7 DAY) and curdate();
+where appointment_date between DATE_ADD(curdate(), INTERVAL -7 DAY) and curdate()
+order by appointment_date;
+
+select payment_date, count(*) as amount_of_payments_per_day
+from payment
+group by payment_date
+order by payment_date;
+
+select room_number, type, count(*) as patients_amount
+from patient_rooms
+group by room_number, type
+order by room_number;
+
+select doctor_name, count(*) as appointments_amount, sum(price) as earned_money, service_name
+from appointment_data
+group by doctor_name, service_name;
+
 
 select patient_name, medication_name, availability
 
