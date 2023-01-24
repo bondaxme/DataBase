@@ -102,3 +102,9 @@ select patient_name
 from patient
 join medical_card mc on patient.id = mc.patient_id
 where blood_type = 'AB+';
+
+select avg(m.price + s.price) as avg_appointment_price, max(m.price + s.price) as max_appointment_price, min(m.price + s.price) as min_appointment_price
+from appointment
+join service s on appointment.service_id = s.id
+join medication_appointment ma on appointment.id = ma.appointment_id
+join medication m on ma.medication_id = m.id
