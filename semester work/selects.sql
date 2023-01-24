@@ -103,8 +103,9 @@ from patient
 join medical_card mc on patient.id = mc.patient_id
 where blood_type = 'AB+';
 
-select avg(m.price + s.price) as avg_appointment_price, max(m.price + s.price) as max_appointment_price, min(m.price + s.price) as min_appointment_price
-from appointment
-join service s on appointment.service_id = s.id
-join medication_appointment ma on appointment.id = ma.appointment_id
-join medication m on ma.medication_id = m.id
+select round(avg(med_price + service_price), 2) as avg_appointment_price, max(med_price + service_price) as max_appointment_price, min(med_price + service_price) as min_appointment_price
+from (select appointment.id, m.price as med_price, s.price as service_price
+        from appointment
+        left join service s on appointment.service_id = s.id
+        left join medication_appointment ma on appointment.id = ma.appointment_id
+        left join medication m on ma.medication_id = m.id) as prices;
