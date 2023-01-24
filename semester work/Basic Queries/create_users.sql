@@ -1,5 +1,10 @@
 use hospital;
 
+create role if not exists owner;
+grant all on hospital.* to owner;
+create user if not exists owner@localhost identified by 'admin';
+grant owner to owner@localhost;
+
 DROP ROLE IF EXISTS doctor;
 CREATE ROLE doctor;
 GRANT SELECT, UPDATE ON TABLE

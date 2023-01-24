@@ -44,7 +44,7 @@ left join appointment a on patient.id = a.patient_id
 left join medication_appointment ma on a.id = ma.appointment_id
 left join medication m on ma.medication_id = m.id;
 
-#6 pateints who have medical insurance
+#6 patients who have medical insurance
 select patient_name
 from patient
 join medical_card on patient.id = medical_card.patient_id
@@ -104,9 +104,20 @@ join medical_card mc on patient.id = mc.patient_id
 where blood_type = 'AB+';
 
 #15 prices per every appointment
-select appointment.id, m.price as med_price, s.price as service_price
+select appointment.id, coalesce(m.price, 0) as med_price, s.price as service_price, (select (sum(med_price + service_price))) as general_price
 from appointment
 left join service s on appointment.service_id = s.id
 left join medication_appointment ma on appointment.id = ma.appointment_id
 left join medication m on ma.medication_id = m.id
 order by id;
+
+#16 find the average, maximum, minimum and the sum of all appointments
+select round(avg(coalesce(m.price, 0) + s.price),2) as avg_price,
+       max(coalesce(m.price, 0) + s.price) as max_price,
+       min(coalesce(m.price, 0) + s.price) as min_price,
+       sum(coalesce(m.price, 0) + s.price) as sum_price
+from appointment
+left join service s on appointment.service_id = s.id
+left join medication_appointment ma on appointment.id = ma.appointment_id
+left join medication m on ma.medication_id = m.id;
+

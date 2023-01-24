@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/semester work/Basic Queries/add_fk.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/semester work/Basic Queries/create_tables.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/semester work/Basic Queries/insert_data.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/semester work/proceduresNfuncs.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/semester work/selects.sql" dialect="MySQL" />
   </component>
 </project>
