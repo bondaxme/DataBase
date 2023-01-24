@@ -32,4 +32,4 @@ begin
 end $$
 delimiter ;
 
-insert into room_housing(id, patient_id, room_id, start_date, end_date) value (26,19,6,'2023-01-24','2023-01-30');
+insert into room_housing(id, patient_id, room_id, start_date, end_date) value (26,20,6,'2023-01-24','2023-01-30');
