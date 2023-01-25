@@ -32,6 +32,20 @@ delimiter ;
 # end $$
 # delimiter ;
 
+drop trigger if exists update_room_availability;
+delimiter $$
+create trigger update_room_availability before insert on room_housing for each row
+begin
+    if NEW.room_id in (select room_id
+                       from room_housing
+                       join room r on room_housing.room_id = r.id
+                       where (select check_free_beds(room_number)) = 1) then
+        update room
+            set availability = 0
+        where NEW.room_id = room.id;
+    end if;
+end $$
+delimiter ;
 
 drop trigger if exists medical_history_update;
 delimiter $$

@@ -8,7 +8,7 @@ begin
     from patient
     join room_housing on patient.id = room_housing.patient_id
     join room r on r.id = room_housing.room_id
-    where room_number = room_num and curdate() between start_date and end_date;
+    where room_number = room_num and curdate() between start_date and end_date-1;
 end $$
 delimiter ;
 
@@ -31,13 +31,13 @@ drop procedure if exists discharge_patient;
 delimiter $$
 create procedure discharge_patient(IN p_id int)
 begin
+    update room
+        set availability = 1
+    where id = (select room_id from room_housing where p_id = patient_id and curdate() between start_date and end_date-1);
+
     update room_housing
         set end_date = curdate()
-    where p_id = patient_id and curdate() between start_date and end_date;
-
-    update room
-        set availability = true
-    where id = (select room_id from room_housing where p_id = patient_id and curdate() between start_date and end_date);
+    where p_id = patient_id and curdate() between start_date and end_date-1;
 end $$
 delimiter ;
 
@@ -52,7 +52,7 @@ begin
     from (select room_number, capacity, count(*) as patients_amount
           from room_housing
           join room r on room_housing.room_id = r.id
-          where curdate() between start_date and end_date
+          where curdate() between start_date and end_date-1
           group by room_id, capacity) as room_temp
     where room_num = room_number;
     return beds_amount;
