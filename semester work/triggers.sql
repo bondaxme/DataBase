@@ -33,3 +33,19 @@ end $$
 delimiter ;
 
 insert into room_housing(id, patient_id, room_id, start_date, end_date) value (26,20,6,'2023-01-24','2023-01-30');
+
+drop trigger if exists medical_history_update;
+delimiter $$
+create trigger medical_history_update before update on medical_card for each row
+begin
+    set @history = concat(old.medical_history, '%');
+    if not new.medical_history like @history then
+        signal sqlstate '45000'
+        set message_text = 'Old diseases must remain';
+    end if;
+end $$
+delimiter ;
+
+update medical_card
+set medical_history = 'Asthma-Obesity-Heart Disease'
+where patient_id = 3;

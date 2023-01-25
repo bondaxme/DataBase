@@ -39,11 +39,10 @@ create table room
 (
     id int auto_increment,
     room_number int not null,
-    type varchar(255) not null,
+    type enum('VIP', 'Standard') not null,
     capacity int not null,
     availability bool default 1,
-    primary key (id),
-    check ( type in ('VIP', 'Standard') )
+    primary key (id)
 );
 
 create table room_housing

@@ -61,4 +61,22 @@ begin
 end $$
 delimiter ;
 
-select check_free_beds(22)
+select check_free_beds(24);
+
+drop function if exists get_appointment_info;
+delimiter $$
+create function get_appointment_info(client_id int) returns varchar(255)
+    deterministic
+begin
+    declare appointment_info varchar(255);
+    select concat('Service: ',service_name,', Date: ', appointment_date,', Price: ', coalesce(service.price, 0)) into appointment_info
+    from appointment
+    join service on appointment.service_id = service.id
+    where appointment.patient_id = client_id
+    order by appointment_date desc
+    limit 1;
+    return coalesce(appointment_info, 'This patient has no appointments');
+end $$
+delimiter ;
+
+select get_appointment_info(3);
