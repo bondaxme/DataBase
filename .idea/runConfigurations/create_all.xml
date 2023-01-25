@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="create all" type="DatabaseScript" editBeforeRun="true">
+    <script-file value="$PROJECT_DIR$/semester work/Basic Queries/create_tables.sql" />
+    <script-file value="$PROJECT_DIR$/semester work/Basic Queries/add_fk.sql" />
+    <script-file value="$PROJECT_DIR$/semester work/Basic Queries/insert_data.sql" />
+    <script-file value="$PROJECT_DIR$/semester work/Basic Queries/create_users.sql" />
+    <script-file value="$PROJECT_DIR$/semester work/Basic Queries/proceduresNfuncs.sql" />
+    <script-file value="$PROJECT_DIR$/semester work/Basic Queries/triggers.sql" />
+    <script-mode>FILE</script-mode>
+    <data-source id="8c682724-f041-46b2-b145-7f413faee49b" namespace="schema/&quot;hospital&quot;" />
+    <method v="2" />
+  </configuration>
+</component>

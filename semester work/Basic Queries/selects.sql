@@ -51,7 +51,7 @@ left join medication m on ma.medication_id = m.id;
 select patient.id, patient_name
 from patient
 join medical_card on patient.id = medical_card.patient_id
-WHERE medical_card.availability_of_insurance = 1;
+where medical_card.availability_of_insurance = 1;
 
 #7 last week appointments
 select service_name, doctor_name, appointment_date
@@ -145,7 +145,7 @@ from appointment
 join service s on appointment.service_id = s.id;
 
 #20 medical history of more vulnerable patients due to age (pensioners)
-SELECT patient.id, patient_name, medical_history,
+select patient.id, patient_name, medical_history,
        date_format(from_days(datediff(now(),date_of_birth)), '%Y')+0 AS age,
        availability_of_insurance
 from patient
