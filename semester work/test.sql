@@ -1,12 +1,16 @@
 use hospital;
 
 explain
-select service_name
-from service
-where price = 15499;
+select *
+from room_housing
+where start_date = '2022-12-30';
 
 create index test
 on service(price);
+explain
+select *
+from room_housing
+where start_date = '2022-12-30';
 
 insert into room_housing(id, patient_id, room_id, start_date, end_date) value (25,19,3,'2023-01-25','2023-01-30');
 
