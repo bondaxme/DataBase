@@ -75,10 +75,3 @@ begin
     return coalesce(appointment_info, 'This patient has no appointments');
 end $$
 delimiter ;
-
-
-call discharge_patient(19);
-call check_appointments('2023-01-20');
-call check_room_patients(21);
-select check_free_beds(21);
-select get_appointment_info(3);
