@@ -3,7 +3,8 @@ use hospital;
 #1 general data about patients
 drop view if exists patient_data;
 create or replace view patient_data as
-select patient_name, sex, height, weight, blood_type, allergies, medical_history
+select patient.id, patient_name, sex, height, weight, blood_type,
+       allergies, medical_history
 from patient
 join medical_card mc on patient.id = mc.patient_id;
 
@@ -12,7 +13,8 @@ select * from patient_data;
 #2 general data about appointments
 drop view if exists appointment_data;
 create or replace view appointment_data as
-select appointment_date,doctor_name, speciality, patient_name, service_name, duration_minutes, price
+select appointment.id,appointment_date,doctor_name, speciality,
+       patient_name, service_name, duration_minutes, price
 from appointment
 join patient p on appointment.patient_id = p.id
 join doctor d on appointment.doctor_id = d.id
@@ -30,7 +32,8 @@ where curdate() between start_date and end_date
 order by end_date;
 
 #4 amount of payments from every patient
-select patient.id, patient_name, payment_method, sum(amount) as amount_of_payments
+select patient.id, patient_name, payment_method,
+       sum(amount) as amount_of_payments
 from patient
 left join appointment a on patient.id = a.patient_id
 left join payment p on a.payment_id = p.id
@@ -59,7 +62,8 @@ where appointment_date between DATE_ADD(curdate(), INTERVAL -7 DAY) and curdate(
 order by appointment_date;
 
 #8 amount of money was earned by doctors
-select doctor.id, doctor_name, count(*) as appointments_amount, sum(price) as earned_money, service_name
+select doctor.id, doctor_name, count(*) as appointments_amount,
+       sum(price) as earned_money, service_name
 from doctor
 join appointment a on doctor.id = a.doctor_id
 join service s on a.service_id = s.id
@@ -86,7 +90,8 @@ where availability = 0
 group by medication_name;
 
 #12 count the amount of patients for every doctor
-select doctor.id, doctor_name, speciality, count(distinct patient_id) as unique_patients
+select doctor.id, doctor_name, speciality,
+       count(distinct patient_id) as unique_patients
 from doctor
 left join appointment a on doctor.id = a.doctor_id
 group by doctor.id, speciality;
@@ -104,7 +109,8 @@ join medical_card mc on patient.id = mc.patient_id
 where blood_type = 'AB+';
 
 #15 prices per every appointment
-select appointment.id, coalesce(m.price, 0) as med_price, s.price as service_price, (select (sum(med_price + service_price))) as general_price
+select appointment.id, coalesce(m.price, 0) as med_price, s.price as service_price,
+       (select (sum(med_price + service_price))) as general_price
 from appointment
 left join service s on appointment.service_id = s.id
 left join medication_appointment ma on appointment.id = ma.appointment_id
@@ -130,4 +136,18 @@ where not weight/(height*height/10000) between 16.5 and 30;
 #18 Amount + sum of payments for every payment method
 select payment_method, count(*) as payments_amount, sum(amount) as payments_sum
 from payment
-group by payment_method
+group by payment_method;
+
+#19 duration and end of every appointment
+select appointment.id, appointment_date, duration_minutes,
+       date_add(appointment_date, interval duration_minutes minute) as end_datetime
+from appointment
+join service s on appointment.service_id = s.id;
+
+#20 medical history of more vulnerable patients due to age (pensioners)
+SELECT patient.id, patient_name, medical_history,
+       date_format(from_days(datediff(now(),date_of_birth)), '%Y')+0 AS age,
+       availability_of_insurance
+from patient
+join medical_card mc on patient.id = mc.patient_id
+having age > 60;
