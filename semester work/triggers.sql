@@ -13,7 +13,6 @@ begin
 end $$
 delimiter ;
 
-insert into room_housing(id, patient_id, room_id, start_date, end_date) value (25,20,2,'2023-01-01','2023-01-30');
 
 drop trigger if exists update_room_availability;
 delimiter $$
@@ -23,6 +22,7 @@ begin
                        from (select room_id, capacity, count(*) as patients_amount
                              from room_housing
                              join room r on room_housing.room_id = r.id
+                             where curdate() between start_date and end_date
                              group by room_id, capacity
                              having patients_amount = capacity-1) as room_temp) then
         update room
@@ -32,7 +32,6 @@ begin
 end $$
 delimiter ;
 
-insert into room_housing(id, patient_id, room_id, start_date, end_date) value (26,20,6,'2023-01-24','2023-01-30');
 
 drop trigger if exists medical_history_update;
 delimiter $$
@@ -46,6 +45,7 @@ begin
 end $$
 delimiter ;
 
+insert into room_housing(id, patient_id, room_id, start_date, end_date) value (25,19,6,'2023-01-25','2023-01-30');
 # update medical_card
 # set medical_history = 'Asthma'
 # where patient_id = 3;
