@@ -78,8 +78,8 @@ group by room_number, type;
 
 #10 amount of prescriptions for every medication
 select medication_name, dosage_in_mg, count(*) as prescription
-from medication_appointment
-join medication m on medication_appointment.medication_id = m.id
+from medication
+join medication_appointment ma on medication.id = ma.medication_id
 group by medication_name, dosage_in_mg;
 
 #11 medications need to be ordered and amount to order
