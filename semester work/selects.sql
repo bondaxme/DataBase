@@ -29,7 +29,7 @@ from room_housing
 join patient p on room_housing.patient_id = p.id
 join room r on room_housing.room_id = r.id
 where curdate() between start_date and end_date
-order by end_date;
+order by room_number;
 
 #4 amount of payments from every patient
 select patient.id, patient_name, payment_method,
@@ -41,14 +41,14 @@ group by patient.id, payment_method
 order by amount_of_payments desc;
 
 #5 clients and medications prescribed to them
-select patient_name, medication_name, dosage_in_mg, price
+select patient.id, patient_name, medication_name, dosage_in_mg, price
 from patient
 left join appointment a on patient.id = a.patient_id
 left join medication_appointment ma on a.id = ma.appointment_id
 left join medication m on ma.medication_id = m.id;
 
 #6 patients who have medical insurance
-select patient_name
+select patient.id, patient_name
 from patient
 join medical_card on patient.id = medical_card.patient_id
 WHERE medical_card.availability_of_insurance = 1;
@@ -61,7 +61,7 @@ join doctor on appointment.doctor_id = doctor.id
 where appointment_date between DATE_ADD(curdate(), INTERVAL -7 DAY) and curdate()
 order by appointment_date;
 
-#8 amount of money was earned by doctors
+#8 amount of money was earned by doctors and + amount of appointments of every doctor
 select doctor.id, doctor_name, count(*) as appointments_amount,
        sum(price) as earned_money, service_name
 from doctor
