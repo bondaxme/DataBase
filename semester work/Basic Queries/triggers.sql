@@ -14,29 +14,11 @@ end $$
 delimiter ;
 
 
-# drop trigger if exists update_room_availability;
-# delimiter $$
-# create trigger update_room_availability before insert on room_housing for each row
-# begin
-#     if NEW.room_id in (select room_temp.room_id
-#                        from (select room_id, capacity, count(*) as patients_amount
-#                              from room_housing
-#                              join room r on room_housing.room_id = r.id
-#                              where curdate() between start_date and end_date
-#                              group by room_id, capacity
-#                              having patients_amount = capacity-1) as room_temp) then
-#         update room
-#             set availability = 0
-#         where NEW.room_id = room.id;
-#     end if;
-# end $$
-# delimiter ;
-
 drop trigger if exists update_room_availability;
 delimiter $$
 create trigger update_room_availability before insert on room_housing for each row
 begin
-    if NEW.room_id in (select room_id
+    if NEW.room_id in (select distinct room_id
                        from room_housing
                        join room r on room_housing.room_id = r.id
                        where (select check_free_beds(room_number)) = 1) then
@@ -46,6 +28,7 @@ begin
     end if;
 end $$
 delimiter ;
+
 
 drop trigger if exists medical_history_update;
 delimiter $$
