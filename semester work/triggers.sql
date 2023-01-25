@@ -46,6 +46,6 @@ begin
 end $$
 delimiter ;
 
-update medical_card
-set medical_history = 'Asthma-Obesity-Heart Disease'
-where patient_id = 3;
+# update medical_card
+# set medical_history = 'Asthma'
+# where patient_id = 3;

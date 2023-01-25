@@ -30,11 +30,11 @@ where curdate() between start_date and end_date
 order by end_date;
 
 #4 amount of payments from every patient
-select patient_name, payment_method, sum(amount) as amount_of_payments
+select patient.id, patient_name, payment_method, sum(amount) as amount_of_payments
 from patient
 left join appointment a on patient.id = a.patient_id
 left join payment p on a.payment_id = p.id
-group by patient_name, payment_method
+group by patient.id, payment_method
 order by amount_of_payments desc;
 
 #5 clients and medications prescribed to them
@@ -59,11 +59,11 @@ where appointment_date between DATE_ADD(curdate(), INTERVAL -7 DAY) and curdate(
 order by appointment_date;
 
 #8 amount of money was earned by doctors
-select doctor_name, count(*) as appointments_amount, sum(price) as earned_money, service_name
+select doctor.id, doctor_name, count(*) as appointments_amount, sum(price) as earned_money, service_name
 from doctor
 join appointment a on doctor.id = a.doctor_id
 join service s on a.service_id = s.id
-group by doctor_name, service_name
+group by doctor.id, service_name
 order by earned_money desc;
 
 #9 amount of patients in every room
@@ -86,10 +86,10 @@ where availability = 0
 group by medication_name;
 
 #12 count the amount of patients for every doctor
-select doctor_name, speciality, count(distinct patient_id) as unique_patients
+select doctor.id, doctor_name, speciality, count(distinct patient_id) as unique_patients
 from doctor
 left join appointment a on doctor.id = a.doctor_id
-group by doctor_name, speciality;
+group by doctor.id, speciality;
 
 #13 patients without allergies and medical history
 select patient_name
@@ -121,3 +121,13 @@ left join service s on appointment.service_id = s.id
 left join medication_appointment ma on appointment.id = ma.appointment_id
 left join medication m on ma.medication_id = m.id;
 
+#17 Patient with critical body mass index
+select patient_name, height, weight, weight/(height*height/10000) as BMI
+from patient
+join medical_card mc on patient.id = mc.patient_id
+where not weight/(height*height/10000) between 16.5 and 30;
+
+#18 Amount + sum of payments for every payment method
+select payment_method, count(*) as payments_amount, sum(amount) as payments_sum
+from payment
+group by payment_method

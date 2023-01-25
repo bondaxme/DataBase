@@ -2,7 +2,7 @@ id,patient_id,height,weight,blood_type,allergies,medical_history,availability_of
 1,1,168,68.37,A+,Penicillin,Diabetes-Heart Disease,1
 2,2,179,71.32,B-,none,none,1
 3,3,157,127.17,AB+,Insulin,Asthma-Obesity,1
-4,4,151,49.25,O+,none,Cancer,1
+4,4,151,49.25,O+,none,none,1
 5,5,155,40.35,A+,Anesthesia,Asthma,0
 6,6,190,80.45,B+,none,Cancer,1
 7,7,176,88.95,AB+,Latex,Schizophrenia,1
