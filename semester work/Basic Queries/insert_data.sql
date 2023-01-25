@@ -1,64 +1,64 @@
 use hospital;
 
-LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/patient.csv' INTO TABLE patient
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+load data infile 'D:/KPI/DataBase/semester work/csv_files/patient.csv' into table patient
+fields terminated by ','
+enclosed by '"'
+lines terminated by '\n'
+ignore 1 rows;
 
-LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/payment.csv' INTO TABLE payment
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+load data infile 'D:/KPI/DataBase/semester work/csv_files/payment.csv' into table payment
+fields terminated by ','
+enclosed by '"'
+lines terminated by '\n'
+ignore 1 rows;
 
-LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/doctor.csv' INTO TABLE doctor
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+load data infile 'D:/KPI/DataBase/semester work/csv_files/doctor.csv' into table doctor
+fields terminated by ','
+enclosed by '"'
+lines terminated by '\n'
+ignore 1 rows;
 
-LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/room.csv' INTO TABLE room
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+load data infile 'D:/KPI/DataBase/semester work/csv_files/room.csv' into table room
+fields terminated by ','
+enclosed by '"'
+lines terminated by '\n'
+ignore 1 rows;
 
-LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/service.csv' INTO TABLE service
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+load data infile 'D:/KPI/DataBase/semester work/csv_files/service.csv' into table service
+fields terminated by ','
+enclosed by '"'
+lines terminated by '\n'
+ignore 1 rows;
 
-LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/medication.csv' INTO TABLE medication
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+load data infile 'D:/KPI/DataBase/semester work/csv_files/medication.csv' into table medication
+fields terminated by ','
+enclosed by '"'
+lines terminated by '\n'
+ignore 1 rows;
 
-LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/medical_card.csv' INTO TABLE medical_card
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+load data infile 'D:/KPI/DataBase/semester work/csv_files/medical_card.csv' into table medical_card
+fields terminated by ','
+enclosed by '"'
+lines terminated by '\n'
+ignore 1 rows;
 
-LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/appointment.csv' INTO TABLE appointment
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+load data infile 'D:/KPI/DataBase/semester work/csv_files/appointment.csv' into table appointment
+fields terminated by ','
+enclosed by '"'
+lines terminated by '\n'
+ignore 1 rows;
 
-LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/room_housing.csv' INTO TABLE room_housing
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+load data infile 'D:/KPI/DataBase/semester work/csv_files/room_housing.csv' into table room_housing
+fields terminated by ','
+enclosed by '"'
+lines terminated by '\n'
+ignore 1 rows;
 
-LOAD DATA INFILE 'D:/KPI/DataBase/semester work/csv_files/medication_appointment.csv' INTO TABLE medication_appointment
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+load data infile 'D:/KPI/DataBase/semester work/csv_files/medication_appointment.csv' into table medication_appointment
+fields terminated by ','
+enclosed by '"'
+lines terminated by '\n'
+ignore 1 rows;
 
 update medical_card
 set allergies = null
