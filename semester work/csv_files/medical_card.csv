@@ -5,8 +5,8 @@ id,patient_id,height,weight,blood_type,allergies,medical_history,availability_of
 4,4,151,49.25,O+,none,none,1
 5,5,155,40.35,A+,Anesthesia,Asthma,0
 6,6,190,80.45,B+,none,Cancer,1
-7,7,176,88.95,AB+,Latex,Schizophrenia,1
-8,8,197,78.04,O+,none,Schizophrenia,1
+7,7,176,88.95,AB+,Latex,Diabetes,1
+8,8,197,78.04,O+,none,Mental illnesses,1
 9,9,191,78.79,A-,Antibiotic,none,1
 10,10,174,49.09,B-,none,Heart Disease,0
 11,11,177,89.8,AB-,none,none,1
